@@ -74,8 +74,8 @@ def login(request):
 def index(request):
 #   localtime = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
     username = request.COOKIES.get('username', '')
-    if username:
-        return HttpResponseRedirect('/')
+#    if username:
+#        return HttpResponseRedirect('/')
     else:return render_to_response('newtem/index.html', {'username': username})
 
 #退出
@@ -88,8 +88,8 @@ def logout(req):
 #samba服务器管理
 def samba(request):
     username = request.COOKIES.get('username', '')
-    if username:
-        return HttpResponseRedirect('/')
+#    if username:
+#       return HttpResponseRedirect('/')
     return main.ssh(request)
 
 #获取测试资源
