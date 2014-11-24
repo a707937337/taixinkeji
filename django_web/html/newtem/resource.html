@@ -94,10 +94,10 @@
     <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>资源管理</a>
     <ul id="dashboard-menu" class="nav nav-list collapse in">
         <li><a href="/index/">首页</a></li>
-        <li><a href="../testresource/">IT资源列表</a></li>
-        <li><a href="../applyforresource/">IT资源申请</a></li>
-        <li><a href="../repository/">知识库</a></li>
-        <li><a href=".">文件服务器</a></li>
+        <li><a href="#">IT资源列表</a></li>
+        <li><a href="applyforresource/">IT资源申请</a></li>
+        <li><a href="repository/">知识库</a></li>
+        <li><a href="../samba">文件服务器</a></li>
     </ul>
 
     <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>爬虫<span
@@ -132,7 +132,7 @@
 
     <div class="header">
 
-        <h1 class="page-title">文件服务器</h1>
+        <h1 class="page-title">APP资源列表</h1>
     </div>
 
 
@@ -140,53 +140,46 @@
         <div class="row-fluid">
 
             <div class="btn-toolbar">
-                <button class="btn btn-primary">服务器状态</button>
+                <button class="btn btn-primary">APP资源列表</button>
                 <div class="btn-group">
                 </div>
             </div>
             <div class="well">
-                <table class="table">
+                <table cellpadding='0' cellspacing='0' id='tab' class="table" style="table-layout:fixed;">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>资源类型</th>
-                        <th>资源状态</th>
-
-                        <th style="width: 26px;"></th>
+                        <th style="width:8%;">类型</th>
+                        <th style="width:8%;">版本</th>
+                        <th style="width:20%;">IP地址</th>
+                        <th style="width:10%;">用户名</th>
+                        <th style="width:9%;">密码</th>
+                        <th style="width:13%;">备注</th>
+                        <th style="width:10%;">测试负责人</th>
+                        <th style="width:10%;">开发负责人</th>
+                        <th style="width:2%;"></th>
                     </tr>
                     </thead>
                     <tbody>
+                    {% for i in list%}
                     <tr>
-                        <td>1</td>
-                        <td>磁盘使用率</td>
-                        <td>{{ obj.disk_useage }}</td>
+
+                        <td>{{ i.0 }}</td>
+                        <td>{{ i.1 }}</td>
+                        <td>{{ i.2 }}</td>
+                        <td>{{ i.3 }}</td>
+                        <td>{{ i.4 }}</td>
+                        <td>{{ i.5 }}</td>
+                        <td>{{ i.6 }}</td>
+                        <td>{{ i.7 }}</td>
 
                         <td>
                             <a href="user.html"><i class="icon-pencil"></i></a>
                             <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Samba服务状态</td>
-                        <td>{{ obj.smb_status}}</td>
 
-                        <td>
-
-                            <a href="user.html"><i class="icon-pencil"></i></a>
-                            <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-                        </td>
                     </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Raid状态</td>
-                        <td>{{obj.raid_status}}</td>
+                    {% endfor %}
 
-                        <td>
-                            <a href="user.html"><i class="icon-pencil"></i></a>
-                            <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-                        </td>
-                    </tr>
                     </tbody>
                 </table>
             </div>

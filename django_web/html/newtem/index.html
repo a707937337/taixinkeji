@@ -92,7 +92,7 @@ if (i<10)
                             <li class="divider"></li>
                             <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
                             <li class="divider visible-phone"></li>
-                            <li><a tabindex="-1" href="/">注销</a></li>
+                            <li><a tabindex="-1" href="{% url "gaga.views.logout" %}">注销</a></li>
                         </ul>
                     </li>
                     
@@ -112,7 +112,7 @@ if (i<10)
         <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>资源管理</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
             <li ><a href=".">首页</a></li>
-            <li ><a href="#">IT资源列表</a></li>
+            <li ><a href="testresource/">IT资源列表</a></li>
             <li ><a href="applyforresource/">IT资源申请</a></li>
             <li ><a href="repository/">知识库</a></li>
             <li ><a href="samba/">文件服务器</a></li>

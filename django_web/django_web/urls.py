@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^index/$', 'gaga.views.index'),
     url(r'^logout/$', 'gaga.views.logout'),
 
-#    url(r'^index/testresource/$', 'gaga.views.testresource'),
+   url(r'^index/testresource/$', 'gaga.views.testresource'),
 )
 urlpatterns += patterns('gaga.views', #gaga.views为公共对象，patterns返回的对象可以相加
 

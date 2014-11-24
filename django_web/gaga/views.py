@@ -5,7 +5,8 @@ from django.template import RequestContext
 from django import forms
 from models import User
 from service import main
-import time
+from api import execl
+#from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 #验证用户是否登录的装饰器
 def requires_login(view):
@@ -69,11 +70,13 @@ def login(request):
     return render_to_response('newtem/sign-in.html', {'uf': uf, 'error': error}, context_instance=RequestContext(request))
 
 #首页
-@requires_login
+
 def index(request):
-    localtime = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
+#   localtime = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
     username = request.COOKIES.get('username', '')
-    return render_to_response('newtem/index.html', {'username': username})
+    if username:
+        return HttpResponseRedirect('/')
+    else:return render_to_response('newtem/index.html', {'username': username})
 
 #退出
 def logout(req):
@@ -83,10 +86,13 @@ def logout(req):
     return response
 
 #samba服务器管理
-@requires_login
 def samba(request):
-   return main.ssh(request)
+    username = request.COOKIES.get('username', '')
+    if username:
+        return HttpResponseRedirect('/')
+    return main.ssh(request)
 
 #获取测试资源
-#def testresource(request):
-
+def testresource(request):
+    a = execl.get_execl()
+    return render_to_response('newtem/resource.html', {'list': a})
