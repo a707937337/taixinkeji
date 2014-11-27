@@ -1,6 +1,6 @@
 #coding=utf-8
-from django.shortcuts import render, render_to_response
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render,render_to_response
+from django.http import HttpResponse,HttpResponseRedirect
 from django.template import RequestContext
 from django import forms
 from models import User
@@ -89,7 +89,7 @@ def logout(req):
 
 #samba服务器管理
 def samba(request):
-#    username = request.COOKIES.get('username', '')
+    username = request.COOKIES.get('username', '')
 #    if username:
 #        return HttpResponseRedirect('/')
     return main.ssh(request)
