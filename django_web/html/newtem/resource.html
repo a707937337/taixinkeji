@@ -93,11 +93,11 @@
 
     <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>资源管理</a>
     <ul id="dashboard-menu" class="nav nav-list collapse in">
-        <li><a href="/index/">首页</a></li>
-        <li><a href="#">IT资源列表</a></li>
-        <li><a href="applyforresource/">IT资源申请</a></li>
-        <li><a href="repository/">知识库</a></li>
-        <li><a href="../samba">文件服务器</a></li>
+        <li ><a href="{% url "gaga.views.index" %}">首页</a></li>
+        <li ><a href="{% url "gaga.views.testresource" %}">资源列表</a></li>
+        <li ><a href="#">资源申请</a></li>
+        <li ><a href="#">知识库wiki</a></li>
+        <li ><a href="{% url "gaga.views.samba" %}">文件服务器</a></li>
     </ul>
 
     <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>爬虫<span
@@ -132,7 +132,7 @@
 
     <div class="header">
 
-        <h1 class="page-title">APP资源列表</h1>
+        <h1 class="page-title">IT资源列表</h1>
     </div>
 
 
@@ -140,7 +140,9 @@
         <div class="row-fluid">
 
             <div class="btn-toolbar">
-                <button class="btn btn-primary">APP资源列表</button>
+                <input type="button"  class="btn btn-primary" value="APP资源列表">
+                <input type="button" class="btn btn-primary" value="泰信网络设备登陆说明">
+                <input type="button" class="btn btn-primary" value="服务器账户密码">
                 <div class="btn-group">
                 </div>
             </div>
@@ -173,7 +175,8 @@
                         <td>{{ i.7 }}</td>
 
                         <td>
-                            <a href="user.html"><i class="icon-pencil"></i></a>
+
+                            <a id="test" href=""><i class="icon-pencil"></i></a>
                             <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
                         </td>
 
@@ -228,6 +231,15 @@
         $(function() {
             $('.demo-cancel-click').click(function(){return false;});
         });
+
+
+   $(function(){
+        //$('table tr:not(:first)').remove();
+        var len = $('table tr').length;
+        for(var i = 1;i<len;i++){
+          $('#test').attr('href',i);
+          };
+          });
     </script>
 
 </body>

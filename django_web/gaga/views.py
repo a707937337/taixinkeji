@@ -6,8 +6,10 @@ from django import forms
 from models import User
 from service import main
 from api import execl
-#from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
+from django.utils import simplejson
+import json
+from django.views.decorators.csrf import csrf_exempt
+from gaga.models import Fileserver
 #验证用户是否登录的装饰器
 def requires_login(view):
     def new_view(request, *args, **kwargs):
@@ -76,7 +78,7 @@ def index(request):
     username = request.COOKIES.get('username', '')
 #    if username:
 #        return HttpResponseRedirect('/')
-    else:return render_to_response('newtem/index.html', {'username': username})
+    return render_to_response('newtem/index.html', {'username': username})
 
 #退出
 def logout(req):
@@ -89,10 +91,20 @@ def logout(req):
 def samba(request):
     username = request.COOKIES.get('username', '')
 #    if username:
-#       return HttpResponseRedirect('/')
+#        return HttpResponseRedirect('/')
     return main.ssh(request)
 
 #获取测试资源
 def testresource(request):
     a = execl.get_execl()
     return render_to_response('newtem/resource.html', {'list': a})
+#修改表格数据
+def changetab(request,tab):
+
+    return HttpResponse(tab)
+@csrf_exempt
+def json_data(request):
+    obj = Fileserver.objects.all().order_by('-id')[0]
+    data = obj.disk_useage
+    jsondata = json.dumps(data)
+    return HttpResponse(jsondata,content_type='application/json')

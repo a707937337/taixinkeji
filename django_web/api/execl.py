@@ -20,7 +20,7 @@ def get_execl():
 
     row_list = []
 #获取各行数据
-    for i in range(1,nrows):
+    for i in range(1, nrows):
         row_data = sh.row_values(i)
         row_list.append(row_data)
     return row_list

@@ -14,10 +14,12 @@ urlpatterns = patterns('',
     url(r'^logout/$', 'gaga.views.logout'),
 
    url(r'^index/testresource/$', 'gaga.views.testresource'),
+   url(r'^index/testresource/(?P<tab>\d)/$', 'gaga.views.changetab'),
 )
 urlpatterns += patterns('gaga.views', #gaga.views为公共对象，patterns返回的对象可以相加
 
          url(r'^index/samba/$', 'samba'),
+         url(r'^index/json/$','json_data'),
 
 
 
