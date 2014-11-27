@@ -6,7 +6,7 @@ from django import forms
 from models import User
 from service import main
 from api import execl
-from django.utils import simplejson
+#from django.utils import simplejson
 import json
 from django.views.decorators.csrf import csrf_exempt
 from gaga.models import Fileserver
@@ -102,9 +102,11 @@ def testresource(request):
 def changetab(request,tab):
 
     return HttpResponse(tab)
+
 @csrf_exempt
 def json_data(request):
-    obj = Fileserver.objects.all().order_by('-id')[0]
-    data = obj.disk_useage
-    jsondata = json.dumps(data)
+    #ob = Fileserver.objects.all().order_by('-id')
+
+    ob = [{'disk_useage':1,'smb_status': 2,'raid_status':3,'test':4}, {'disk_useage':1,'smb_status': 2,'raid_status':3,'test':4}]
+    jsondata = json.dumps(ob)
     return HttpResponse(jsondata,content_type='application/json')
