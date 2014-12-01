@@ -14,6 +14,15 @@
     <link rel="stylesheet" type="text/css" href="{% static "stylesheets/theme.css" %}">
     <link rel="stylesheet" href="{% static "lib/font-awesome/css/font-awesome.css" %}">
     <script src="{% static "lib/jquery-1.7.2.min.js" %}" type="text/javascript"></script>
+ <script type="text/javascript">
+ function f1(){
+ var tab1=document.getElementById("tab1");
+ var tab2=document.getElementById("tab2");type="text/javascript"
+
+ tab1.style.display=(tab1.style.display=="none"?"":"none");
+ tab2.style.display=(tab2.style.display=="none"?"":"none");
+}
+</script>
 
     <!-- Demo page code -->
 
@@ -131,8 +140,13 @@
 <div class="content">
 
     <div class="header">
-
         <h1 class="page-title">IT资源列表</h1>
+        <div align="right" >
+        <span style="color:blue" class="page-title"><form action="/upload"  method="post" enctype="multipart/form-data" accept-charset="utf-8">
+                {% csrf_token %}
+                    <input type="file" name="pic" value="" /><button>上传</button>
+               </form></span>
+           </div>
     </div>
 
 
@@ -140,17 +154,22 @@
         <div class="row-fluid">
 
             <div class="btn-toolbar">
-                <input type="button"  class="btn btn-primary" value="APP资源列表">
-                <input type="button" class="btn btn-primary" value="泰信网络设备登陆说明">
-                <input type="button" class="btn btn-primary" value="服务器账户密码">
+            {% block href %}
+                <input type=button value=app资源列表 name=play1 onclick="window.location.href='#'">
+                  <input type=button value=IP地址资源统计 name=play2 onclick="window.location.href='2'">
+                    <input type=button value=主机账户密码 name=play3 onclick="window.location.href='3'">
+
+                {% endblock %}
                 <div class="btn-group">
                 </div>
             </div>
-            <div class="well">
-                <table cellpadding='0' cellspacing='0' id='tab' class="table" style="table-layout:fixed;">
+
+            {% block table %}
+             <div class="well" >
+                <table id='tab1' cellpadding='0' cellspacing='0'  class="table" style="table-layout:fixed;">
                     <thead>
                     <tr>
-                        <th style="width:8%;">类型</th>
+                        <th style="width:8%;">类型1</th>
                         <th style="width:8%;">版本</th>
                         <th style="width:20%;">IP地址</th>
                         <th style="width:10%;">用户名</th>
@@ -185,7 +204,8 @@
 
                     </tbody>
                 </table>
-            </div>
+                {% endblock %}
+
             <div class="pagination">
                 <ul>
                     <li><a href="#">前一页</a></li>

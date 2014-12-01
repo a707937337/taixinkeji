@@ -17,3 +17,12 @@ class Fileserver(models.Model):
 
     def __unicode__(self):
         return self.disk_useage
+    def toJSON(self):
+        fields = []
+        for field in self._meta.fields:
+            fields.append(field.name)
+        d = {}
+        for attr in fields:
+            d[attr] = getattr(self, attr)
+        import json
+        return json.dumps(d)

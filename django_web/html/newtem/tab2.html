@@ -1,0 +1,37 @@
+{% extends "newtem\resource.html" %}
+   {% block href %}
+                <input type=button value=app资源列表 name=play1 onclick="window.location.href='..'">
+                    <input type=button value=IP地址资源统计 name=play2 onclick="window.location.href='#'">
+                        <input type=button value=主机账户密码 name=play3 onclick="window.location.href='3'">
+                {% endblock %}
+{% block table %}
+   <div class="well" >
+                <table id='tab1' cellpadding='0' cellspacing='0'  class="table" style="table-layout:fixed;">
+                    <thead>
+                    <tr>
+                        <th style="width:25%;">IP地址</th>
+                        <th style="width:25%;">是否使用</th>
+                        <th style="width:25%;">备注</th>
+                        <th style="width:25%;"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in list%}
+                    <tr>
+
+                        <td>{{ i.0 }}</td>
+                        <td>{{ i.1 }}</td>
+                        <td>{{ i.2 }}</td>
+
+                        <td>
+
+                            <a id="test" href=""><i class="icon-pencil"></i></a>
+                            <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                {% endblock %}

@@ -10,6 +10,7 @@ from api import execl
 import json
 from django.views.decorators.csrf import csrf_exempt
 from gaga.models import Fileserver
+from django.core import serializers
 #验证用户是否登录的装饰器
 def requires_login(view):
     def new_view(request, *args, **kwargs):
@@ -96,17 +97,28 @@ def samba(request):
 
 #获取测试资源
 def testresource(request):
-    a = execl.get_execl()
+    fname = "C:\APP.xls"
+    sheet = "Sheet1"
+    a = execl.get_execl(fname, sheet)
     return render_to_response('newtem/resource.html', {'list': a})
 #修改表格数据
 def changetab(request,tab):
+     if int(tab) == 2:
+        fname = "C:\ip2.xls"
+        sheet = "Sheet1"
+        a = execl.get_execl(fname,sheet)
+        return render_to_response('newtem/tab2.html', {'list': a})
 
-    return HttpResponse(tab)
-
+#ajax调用
 @csrf_exempt
 def json_data(request):
-    #ob = Fileserver.objects.all().order_by('-id')
 
-    ob = [{'disk_useage':1,'smb_status': 2,'raid_status':3,'test':4}, {'disk_useage':1,'smb_status': 2,'raid_status':3,'test':4}]
-    jsondata = json.dumps(ob)
-    return HttpResponse(jsondata,content_type='application/json')
+    ob = Fileserver.objects.all()
+    data = serializers.serialize("json", ob)
+    #ob = [{'disk_useage':1,'smb_status': 2,'raid_status':3,'test':4}, {'disk_useage':1,'smb_status': 2,'raid_status':3,'test':4}]
+#    jsondata = json.dumps(data)
+#    jsondata = ob.toJSON()
+    return HttpResponse(data,content_type='application/json')
+@csrf_exempt
+def upload(request):
+    pass

@@ -68,7 +68,7 @@
     {i="0" + i}
      return i
 };
-$(function () {
+function get_data() {
     var options;
        options={
         title: {
@@ -118,39 +118,40 @@ $(function () {
     };
  $.ajax({
             url: "json/",
-            //dataType: "json",
+            dataType: "json",
             type:"post",
-            success: function (data) {
+            success: function(data) {
                 //init series arays
                 disk_arr = [];
                 cpu_arr = [];
                 mem_arr = [];
-                net_arr = [];
+                //net_arr = [];
 
                 for (i in data) {
                     //build
+                    var t =0;
                     var r = data[i];
-                    disk_arr.push([r.disk_useage]);
-                    cpu_arr.push([r.smb_status]);
-                    mem_arr.push([r.raid_status]);
-                    net_arr.push([r.test]);
-
+                    disk_arr.push([Number(r.fields.smb_status)]);
+                    cpu_arr.push([Number(r.fields.disk_useage)]);
+                    mem_arr.push([Number(r.fields.raid_status)]);
+                    //net_arr.push([r.fields.test]);
+                  
                 }
                 //save series
                 options.series[0].data = disk_arr;
                 options.series[1].data = cpu_arr;
                 options.series[2].data = mem_arr;
-                options.series[3].data = net_arr;
+                //options.series[3].data = net_arr;
 
 
 
                 var chart = $('#container-test').highcharts(options);
             },
             cache: false
-
-
-    });
-});
+        });
+};
+get_data();
+setInterval("get_data()",3000);//3秒一次执行
 
 </script>
  {% endblock %}
@@ -313,7 +314,7 @@ $(function () {
     <div class="block span6">
         <a href="#widget1container" class="block-heading" data-toggle="collapse">资源申请规则 </a>
         <div id="widget1container" class="block-body collapse in">
-            <h2>Using Ruby?</h2>
+            <i><h2>用来做什么</h2></i>
             <p>This template was developed with <a href="http://middlemanapp.com/" target="_blank">Middleman</a> and includes .erb layouts and views.</p>
             <p>All of the views you see here (sign in, sign up, users, etc) are already split up so you don't have to waste your time doing it yourself!</p>
             <p>The layout.erb file includes the header, footer, and side navigation and all of the views are broken out into their own files.</p>
