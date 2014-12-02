@@ -100,7 +100,7 @@
         <input type="text" placeholder="查找...">
     </form>
 
-    <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>资源管理</a>
+    <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>资源管理<i class="icon-chevron-up"></i></a>
     <ul id="dashboard-menu" class="nav nav-list collapse in">
         <li ><a href="{% url "gaga.views.index" %}">首页</a></li>
         <li ><a href="{% url "gaga.views.testresource" %}">资源列表</a></li>
@@ -109,30 +109,28 @@
         <li ><a href="{% url "gaga.views.samba" %}">文件服务器</a></li>
     </ul>
 
-    <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>爬虫<span
-            class="label label-info">+3</span></a>
-    <ul id="accounts-menu" class="nav nav-list collapse">
-        <li><a href="sign-in.html">Sign In</a></li>
-        <li><a href="sign-up.html">Sign Up</a></li>
-        <li><a href="reset-password.html">Reset Password</a></li>
-    </ul>
+     <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>爬虫<i class="icon-chevron-up"></i></a>
+        <ul id="accounts-menu" class="nav nav-list collapse">
+            <li ><a href="sign-in.html">Sign In</a></li>
+            <li ><a href="sign-up.html">Sign Up</a></li>
+            <li ><a href="reset-password.html">Reset Password</a></li>
+        </ul>
 
-    <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>Error
-        Pages <i class="icon-chevron-up"></i></a>
-    <ul id="error-menu" class="nav nav-list collapse">
-        <li><a href="403.html">403 page</a></li>
-        <li><a href="404.html">404 page</a></li>
-        <li><a href="500.html">500 page</a></li>
-        <li><a href="503.html">503 page</a></li>
-    </ul>
+        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i> Devops<i class="icon-chevron-up"></i></a>
+        <ul id="error-menu" class="nav nav-list collapse">
+            <li ><a href="403.html">Saltstack</a></li>
+            <li ><a href="404.html">Zabbix</a></li>
+            <li ><a href="500.html">Cobbler</a></li>
 
-    <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>Legal</a>
-    <ul id="legal-menu" class="nav nav-list collapse">
-        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-        <li><a href="terms-and-conditions.html">Terms and Conditions</a></li>
-    </ul>
+        </ul>
 
-    <a href="help.html" class="nav-header"><i class="icon-question-sign"></i>帮助</a>
+        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>统一桌面<i class="icon-chevron-up"></i></a>
+        <ul id="legal-menu" class="nav nav-list collapse">
+            <li ><a href="privacy-policy.html">Windows远程桌面</a></li>
+            <li ><a href="terms-and-conditions.html">Linux远程桌面与webSSH</a></li>
+        </ul>
+
+    <a href="#" class="nav-header"><i class="icon-question-sign"></i>帮助</a>
 
 </div>
 
@@ -142,9 +140,9 @@
     <div class="header">
         <h1 class="page-title">IT资源列表</h1>
         <div align="right" >
-        <span style="color:blue" class="page-title"><form action="/upload"  method="post" enctype="multipart/form-data" accept-charset="utf-8">
+        <span style="color:blue" class="page-title"><form action="/upload/"  method="post" enctype="multipart/form-data" accept-charset="utf-8">
                 {% csrf_token %}
-                    <input type="file" name="pic" value="" /><button>上传</button>
+                    <input type="file" name="pic" value="" alt="请上传execl文件"/><button>上传</button>
                </form></span>
            </div>
     </div>
@@ -169,7 +167,7 @@
                 <table id='tab1' cellpadding='0' cellspacing='0'  class="table" style="table-layout:fixed;">
                     <thead>
                     <tr>
-                        <th style="width:8%;">类型1</th>
+                        <th style="width:8%;">类型</th>
                         <th style="width:8%;">版本</th>
                         <th style="width:20%;">IP地址</th>
                         <th style="width:10%;">用户名</th>
@@ -245,7 +243,7 @@
 </div>
 
 
-<script src="{% static "lib/bootstrap/js/bootstrap.js" %}"></script>
+<script src="{% static "lib/bootstrap/js/bootstrap.js" %}"></div>
     <script type="text/javascript">
         $("[rel=tooltip]").tooltip();
         $(function() {

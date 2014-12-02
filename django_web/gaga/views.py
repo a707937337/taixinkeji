@@ -9,7 +9,7 @@ from api import execl
 #from django.utils import simplejson
 import json
 from django.views.decorators.csrf import csrf_exempt
-from gaga.models import Fileserver
+from gaga.models import Fileserver, Xuqiu
 from django.core import serializers
 #验证用户是否登录的装饰器
 def requires_login(view):
@@ -28,6 +28,9 @@ class UserForm(forms.Form):
         if num_words < 4:
             raise forms.ValidationError("Not enough words!")
         return message'''
+class XuqiuForm(forms.Form):
+    user = forms.CharField(max_length=20, label='您是')
+    xuqiu = forms.Textarea()
 
 
 #注册
@@ -45,9 +48,12 @@ def regist(req):
         uf = UserForm()
     return render_to_response('regist.html', {'uf':uf}, context_instance=RequestContext(req))
 
+#提交需求
+def postxuqiu(request):
+    pass
+
+
 #登陆
-
-
 def login(request):
     error = False
     if request.method == 'POST':
@@ -69,7 +75,7 @@ def login(request):
                 error = True
 
     else:
-        uf = UserForm(initial={'username': '请输入用户名'})
+        uf = UserForm()
     return render_to_response('newtem/sign-in.html', {'uf': uf, 'error': error}, context_instance=RequestContext(request))
 
 #首页

@@ -13,8 +13,6 @@ class Fileserver(models.Model):
     disk_useage = models.CharField('磁盘使用率',max_length = 10)
     smb_status = models.CharField('Samba状态',max_length = 50)
     raid_status = models.CharField('Raid状态',max_length = 50)
-
-
     def __unicode__(self):
         return self.disk_useage
     def toJSON(self):
@@ -26,3 +24,6 @@ class Fileserver(models.Model):
             d[attr] = getattr(self, attr)
         import json
         return json.dumps(d)
+class Xuqiu(models.Model):
+    textarea = models.TextField('需求')
+    who = models.CharField('用户名',max_length= 20)

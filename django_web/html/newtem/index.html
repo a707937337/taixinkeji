@@ -76,7 +76,7 @@ function get_data() {
             x: -20 //center
         },
         subtitle: {
-            text: 'Source:泰信科技',
+            text: '泰信科技',
             x: -20
         },
         xAxis: {
@@ -151,7 +151,7 @@ function get_data() {
         });
 };
 get_data();
-setInterval("get_data()",3000);//3秒一次执行
+setInterval("get_data()",10000);//3秒一次执行
 
 </script>
  {% endblock %}
@@ -169,7 +169,7 @@ setInterval("get_data()",3000);//3秒一次执行
         <div class="navbar-inner">
                 <ul class="nav pull-right">
                     
-                    <li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button">功能未添加</a></li>
+                    <li><a href="#fat-menu" class="hidden-phone visible-tablet visible-desktop" role="button">功能未添加</a></li>
                     <li id="fat-menu" class="dropdown">
                         <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-user"></i> {{ username }}
@@ -189,7 +189,7 @@ setInterval("get_data()",3000);//3秒一次执行
                 <a class="brand" href="."><span class="first">APEX</span> <span class="second">泰信科技</span></a>
         </div>
     </div>
-    
+
 
 
     
@@ -198,38 +198,47 @@ setInterval("get_data()",3000);//3秒一次执行
             <input type="text" placeholder="查找...">
         </form>
 
-        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>资源管理</a>
+        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>资源管理<i class="icon-chevron-up"></i></a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
             <li ><a href=".">首页</a></li>
-            <li ><a href="testresource/">资源列表</a></li>
+            <li ><a href="testresource/" >资源列表</a></li>
             <li ><a href="applyforresource/">资源申请</a></li>
             <li ><a href="repository/">知识库wiki</a></li>
             <li ><a href="samba/">文件服务器</a></li>
         </ul>
 
-        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>爬虫<span class="label label-info">+3</span></a>
+        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>爬虫<i class="icon-chevron-up"></i></a>
         <ul id="accounts-menu" class="nav nav-list collapse">
             <li ><a href="sign-in.html">Sign In</a></li>
             <li ><a href="sign-up.html">Sign Up</a></li>
             <li ><a href="reset-password.html">Reset Password</a></li>
         </ul>
 
-        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>Error Pages <i class="icon-chevron-up"></i></a>
+        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i> Devops<i class="icon-chevron-up"></i></a>
         <ul id="error-menu" class="nav nav-list collapse">
-            <li ><a href="403.html">403 page</a></li>
-            <li ><a href="404.html">404 page</a></li>
-            <li ><a href="500.html">500 page</a></li>
-            <li ><a href="503.html">503 page</a></li>
+            <li ><a href="403.html">Saltstack</a></li>
+            <li ><a href="404.html">Zabbix</a></li>
+            <li ><a href="500.html">Cobbler</a></li>
+
         </ul>
 
-        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>Legal</a>
+        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>统一桌面<i class="icon-chevron-up"></i></a>
         <ul id="legal-menu" class="nav nav-list collapse">
-            <li ><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li ><a href="terms-and-conditions.html">Terms and Conditions</a></li>
+            <li ><a href="privacy-policy.html">Windows远程桌面</a></li>
+            <li ><a href="terms-and-conditions.html">Linux远程桌面与webSSH</a></li>
         </ul>
 
-        <a href="help.html" class="nav-header" ><i class="icon-question-sign"></i>帮助</a>
-
+        <a href="#" class="nav-header" ><i class="icon-question-sign"></i>帮助</a></br></br>
+        <div style="width:250px;height:320px;">
+        <form  name="mail" action="MAILTO:jiajia.yan@tekview.com" method="post" enctype="text/plain">
+            <p><font color='gray'>您是：</font></p>
+            <input type="text" name="user" />
+                <p><font color='gray'>您的需求：</font></p>
+                 <textarea name="textarea" id="textarea" cols="45" rows="5" ></textarea>
+            <input type="submit" value="发送邮件" />
+            </form>
+            </div>
+        </div>
     </div>
     <div class="content">
 
@@ -270,9 +279,9 @@ setInterval("get_data()",3000);//3秒一次执行
             <table class="table">
               <thead>
                 <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
+                  <th>主机</th>
+                  <th>用户名</th>
+                  <th>密码</th>
                 </tr>
               </thead>
               <tbody>
@@ -308,7 +317,7 @@ setInterval("get_data()",3000);//3秒一次执行
                 </tr>
               </tbody>
             </table>
-            <p><a href="{% url "gaga.views.testresource" %}">More...</a></p>
+            <p><a href="testresource/2/" target="_top">更多...</a></p>
         </div>
     </div>
     <div class="block span6">
