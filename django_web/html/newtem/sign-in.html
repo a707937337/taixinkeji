@@ -65,7 +65,7 @@
         <ul class="nav pull-right">
 
         </ul>
-        <a class="brand" href="index.html"><span class="first">APEX</span> <span class="second">泰信科技</span></a>
+        <a class="brand"><span class="first">APEX</span> <span class="second">泰信科技</span></a>
     </div>
 </div>
 
@@ -78,9 +78,13 @@
                 {% if error %}
                 <p style="color: red;">请检查用户名和密码</p>
                 {% endif %}
+
                 <form  method='post' enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{uf.as_p}}
+                    <label>用户名</label>
+                    <input type="text" name="username">
+                    <label>密码</label>
+                    <input type="password" name="password">
                     <input type="submit" value="登陆" class="btn btn-primary pull-right">
                     <label class="remember-me"><input type="checkbox">记住我</label>
 

@@ -120,12 +120,12 @@
                     <li class="divider"></li>
                     <li><a tabindex="-1" class="visible-phone" href="#">setting</a></li>
                     <li class="divider visible-phone"></li>
-                    <li><a tabindex="-1" href="/">注销</a></li>
+                    <li><a tabindex="-1" href="{% url 'gaga.views.logout'%}">注销</a></li>
                 </ul>
             </li>
 
         </ul>
-        <a class="brand" href="/index/"><span class="first">APEX</span> <span class="second">泰信科技</span></a>
+        <a class="brand"><span class="first">APEX</span> <span class="second">泰信科技</span></a>
     </div>
 </div>
 
@@ -145,23 +145,23 @@
     </ul>
  <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>爬虫<i class="icon-chevron-up"></i></a>
         <ul id="accounts-menu" class="nav nav-list collapse">
-            <li ><a href="sign-in.html">Sign In</a></li>
-            <li ><a href="sign-up.html">Sign Up</a></li>
-            <li ><a href="reset-password.html">Reset Password</a></li>
+            <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">1</a></li>
+            <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">2</a></li>
+            <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">3</a></li>
         </ul>
 
         <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i> Devops<i class="icon-chevron-up"></i></a>
         <ul id="error-menu" class="nav nav-list collapse">
-            <li ><a href="403.html">Saltstack</a></li>
-            <li ><a href="404.html">Zabbix</a></li>
-            <li ><a href="500.html">Cobbler</a></li>
+            <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">Saltstack</a></li>
+            <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">Zabbix</a></li>
+            <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">Cobbler</a></li>
 
         </ul>
 
-        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>统一桌面<i class="icon-chevron-up"></i></a>
+        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>统一终端<i class="icon-chevron-up"></i></a>
         <ul id="legal-menu" class="nav nav-list collapse">
-            <li ><a href="privacy-policy.html">Windows远程桌面</a></li>
-            <li ><a href="terms-and-conditions.html">Linux远程桌面与webSSH</a></li>
+            <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">Windows远程桌面</a></li>
+            <li ><a href="https://192.168.0.174" target="_blank">webSSH</a></li>
         </ul>
 
     <a href="#" class="nav-header"><i class="icon-question-sign"></i>帮助</a>

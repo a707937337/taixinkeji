@@ -24,10 +24,10 @@ SECRET_KEY = '*a=*nsyy-f8+&jb$t1)%!u3dge8t-9nk0n0p4rx+bsa46u^y^i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.0.54']
 TEMPLATE_DEBUG = True
+#STATIC_ROOT = 'D:\WORKSPACE\django_web\django_web\static'
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
