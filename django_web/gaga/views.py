@@ -9,7 +9,7 @@ from django import forms
 from models import User
 from service import main
 from api import execl
-
+from api.handle_uploaded_file import handle_uploaded_file
 
 from django.views.decorators.csrf import csrf_exempt
 from gaga.models import Fileserver, Xuqiu
@@ -35,7 +35,9 @@ class XuqiuForm(forms.Form):
     user = forms.CharField(max_length=20, label='您是')
     xuqiu = forms.Textarea()
 
-
+class UploadFileForm(forms.Form):
+    title = forms.CharField(max_length=50)
+    file = forms.FileField()
 #注册
 def regist(req):
     if req.method == 'POST':
@@ -83,14 +85,14 @@ def my_login(request):
 
 #    else:
 #       uf = UserForm()
-    return render_to_response('newtem/sign-in.html', {'error': error}, context_instance=RequestContext(request))
+    return render(request, 'newtem/sign-in.html', {'error': error})
 
 #首页
 @login_required   #验证是否登陆的装饰器
 def index(request):
 #   localtime = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
     username = request.COOKIES.get('username', '')
-    return render_to_response('newtem/index.html', {'username': username})
+    return render(request, 'newtem/index.html', {'username': username})
 
 #退出
 def logout(req):
@@ -138,7 +140,12 @@ def json_data(request):
 @csrf_exempt
 @login_required
 def upload(request):
-    pass
+    if request.method == 'POST':
+       f = handle_uploaded_file(request.FILES['file'])
+    return render_to_response('newtem/upload.html', {'file': f})
+
+
+
 
 #未实现功能返回页
 def noreal(request):
