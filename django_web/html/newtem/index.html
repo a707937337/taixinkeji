@@ -40,6 +40,18 @@
             color: #fff;
             font-weight: bold;
         }
+        .navbar-inner {
+            position:fixed;
+            left:0px
+            top:0px
+            z-index:0;
+            width:100%;
+            hight:0px;
+            background: #ccc
+
+
+        }
+        .blank{ clear:both; overflow:hidden; display:block; overflow:hidden;height:37px;}
     </style>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -88,8 +100,7 @@
                 <a class="brand" ><span class="first">APEX</span> <span class="second">泰信科技</span></a>
         </div>
     </div>
-
-
+    <span class="blank"></span>
 
     
     <div class="sidebar-nav">
@@ -296,8 +307,9 @@
             </table>
         </div>
     </div>
+    <div class="row-fluid">
     <div class="block span6">
-        <p class="block-heading">知识库</p>
+        <p class="block-heading" data-toggle="collapse">知识库</p>
         <div class="block-body">
             <h2>Tip of the Day</h2>
             <p></p>
