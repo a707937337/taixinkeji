@@ -26,7 +26,7 @@ SECRET_KEY = '*a=*nsyy-f8+&jb$t1)%!u3dge8t-9nk0n0p4rx+bsa46u^y^i'
 DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.0.54']
 TEMPLATE_DEBUG = True
-#STATIC_ROOT = 'D:\WORKSPACE\django_web\django_web\static'
+#STATIC_ROOT = '/home/django_web/django_web/static'
 
 
 
@@ -62,7 +62,7 @@ WSGI_APPLICATION = 'django_web.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-'''DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         #'NAME': 'py_test',                      # Or path to database file if using sqlite3.
@@ -75,13 +75,13 @@ WSGI_APPLICATION = 'django_web.wsgi.application'
         'HOST': '192.168.0.35',
         'PORT': '3306',
     }
-}'''
-DATABASES = {
+}
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}
+}'''
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 

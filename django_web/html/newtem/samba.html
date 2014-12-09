@@ -9,22 +9,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="stylesheet" type="text/css" href="{% static "lib/bootstrap/css/bootstrap.css" %}">
-
+    <link rel="stylesheet" type="text/css" href="{% static "lib/bootstrap/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/tekview.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "stylesheets/theme.css" %}">
     <link rel="stylesheet" href="{% static "lib/font-awesome/css/font-awesome.css" %}">
     <script src="{% static "lib/jquery-1.7.2.min.js" %}" type="text/javascript"></script>
+    <script src="{% static "lib/bootstrap/js/bootstrap.min.js" %}" type="text/javascript"></script>
     <script src="{% static "lib/highcharts.js" %}" type="text/javascript"></script>
-    <script src="{% static "lib/tekview.js" %}" type="text/javascript" charset="gbk"></script>
     <script src="{% static "lib/gateone.js"  %}" type="text/javascript"  ></script>
+    <script src="{% static "lib/tekview.js" %}" type="text/javascript" charset="gbk"></script>
     <script type="text/javascript" >
     $(function(){
     samba();
     });
-    window.onload = function() {
-        // Initialize Gate One:
-        GateOne.init({url: 'https://192.168.0.174/'});
-    }
+
     </script>
     <!-- Demo page code -->
 
@@ -116,9 +114,9 @@
     <ul id="dashboard-menu" class="nav nav-list collapse in">
         <li><a href="/index/">首页</a></li>
         <li><a href="../testresource/">资源列表</a></li>
-        <li><a href="../applyforresource/">资源申请</a></li>
+        <li><a href="#">资源申请</a></li>
         <li><a href="../repository/">知识库wiki</a></li>
-        <li><a href=".">文件服务器</a></li>
+        <li><a href=".">服务器管理</a></li>
     </ul>
  <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>爬虫<i class="icon-chevron-up"></i></a>
         <ul id="accounts-menu" class="nav nav-list collapse">
@@ -150,7 +148,7 @@
 
     <div class="header">
 
-        <h1 class="page-title">文件服务器</h1>
+        <h1 class="page-title">服务器管理</h1>
     </div>
 
 
@@ -208,20 +206,11 @@
                     </tbody>
                 </table>
             </div>
-            <div id="container-test" style="min-width:400px;height:300px"></div>
-           <div class="pagination">
-                <ul>
-                    <li><a href="#">前一页</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">后一页</a></li>
-                </ul>
-            </div>
-             <div id="gateone_container" style="position: relative; width: 60em; height: 30em;">
+            <div id="container-test" style="min-width:500px;height:300px"></div>
+            <button class="btn btn-primary" onclick="webSSH()">启动webSSH</button>
+            <div id="gateone_container" style="position: relative; width: 70em; height: 50em;">
             <div id="gateone"></div>
-        </div>
+            </div>
 
             <div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">

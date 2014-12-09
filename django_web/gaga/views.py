@@ -1,7 +1,6 @@
 #coding=utf-8
 from django.shortcuts import render,render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
-from django.contrib import auth
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
@@ -12,7 +11,7 @@ from api import execl
 from api.handle_uploaded_file import handle_uploaded_file
 
 from django.views.decorators.csrf import csrf_exempt
-from gaga.models import Fileserver, Xuqiu
+from gaga.models import Fileserver, Xuqiu, name_password
 from django.core import serializers
 #验证用户是否登录的装饰器
 def requires_login(view):
@@ -36,7 +35,6 @@ class XuqiuForm(forms.Form):
     xuqiu = forms.Textarea()
 
 class UploadFileForm(forms.Form):
-    title = forms.CharField(max_length=50)
     file = forms.FileField()
 #注册
 def regist(req):
@@ -92,7 +90,14 @@ def my_login(request):
 def index(request):
 #   localtime = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
     username = request.COOKIES.get('username', '')
-    return render(request, 'newtem/index.html', {'username': username})
+    if request.method == 'POST':
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            handle_uploaded_file(request.FILES['file'])
+            return HttpResponseRedirect('/upload/')
+    else:
+        form = UploadFileForm()
+    return render(request, 'newtem/index.html', {'username': username, 'form': form})
 
 #退出
 def logout(req):
@@ -112,19 +117,22 @@ def samba(request):
 #获取测试资源
 @login_required
 def testresource(request):
-    fname = "C:\APP.xls"
+    fname = "c:\APP.xls"
     sheet = "Sheet1"
     a = execl.get_execl(fname, sheet)
     username = request.COOKIES.get('username', '')
-    return render_to_response('newtem/resource.html', {'list': a, 'username':username})
+    return render_to_response('newtem/resource.html', {'list': a, 'username': username})
 #修改表格数据
 @login_required
 def changetab(request,tab):
-     if int(tab) == 2:
-        fname = "C:\ip2.xls"
+    if int(tab) == 2:
+       	fname = "c:\ip2.xls"
         sheet = "Sheet1"
         a = execl.get_execl(fname,sheet)
         return render_to_response('newtem/tab2.html', {'list': a})
+    else:
+        a = name_password.objects.all()
+        return render_to_response('newtem/tab3.html', {'list': a})
 
 #ajax调用
 @csrf_exempt
@@ -140,9 +148,12 @@ def json_data(request):
 @csrf_exempt
 @login_required
 def upload(request):
-    if request.method == 'POST':
-       f = handle_uploaded_file(request.FILES['file'])
-    return render_to_response('newtem/upload.html', {'file': f})
+   return render_to_response('newtem/upload.html')
+
+#webSSH
+@login_required
+def term(request):
+    return render_to_response('newtem/term.html')
 
 
 

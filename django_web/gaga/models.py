@@ -27,3 +27,7 @@ class Fileserver(models.Model):
 class Xuqiu(models.Model):
     textarea = models.TextField('需求')
     who = models.CharField('用户名',max_length= 20)
+class name_password(models.Model):
+    IP = models.CharField('IP地址',max_length = 20)
+    username = models.CharField('账户名',max_length = 20)
+    password = models.CharField('密码',max_length = 20)

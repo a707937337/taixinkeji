@@ -162,4 +162,13 @@ var get_data=function(){
             cache: false
         });
 };
-
+ var webSSH = function() {
+        // Initialize Gate One:
+        GateOne.init({
+            url: 'https://192.168.0.174/',
+            //embedded: True,
+            // Let's apply some custom styles while we're at it...
+            //style: {'background-color': 'yellowgreen', 'box-shadow': '0 0 40px blueViolet'}
+            // Oh yeah, that's the way to style a terminal!
+        });
+    }

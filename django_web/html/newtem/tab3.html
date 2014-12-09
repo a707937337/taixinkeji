@@ -1,8 +1,8 @@
 {% extends "newtem/resource.html" %}
    {% block href %}
                 <input class="anniu" type=button value=app资源列表 name=play1 onclick="window.location.href='..'">
-                    <input class="anniu" type=button value=IP地址资源统计 name=play2 onclick="window.location.href='#'">
-                        <input class="anniu" type=button value=主机账户密码 name=play3 onclick="window.location.href='../3'">
+                    <input class="anniu" type=button value=IP地址资源统计 name=play2 onclick="window.location.href='../2'">
+                        <input class="anniu" type=button value=主机账户密码 name=play3 onclick="window.location.href='#'">
                 {% endblock %}
 {% block table %}
    <div class="well" >
@@ -10,8 +10,8 @@
                     <thead>
                     <tr>
                         <th style="width:25%;">IP地址</th>
-                        <th style="width:25%;">是否使用</th>
-                        <th style="width:25%;">备注</th>
+                        <th style="width:25%;">用户名</th>
+                        <th style="width:25%;">密码</th>
                         <th style="width:10%;"></th>
                     </tr>
                     </thead>
@@ -19,9 +19,9 @@
                     {% for i in list%}
                     <tr>
 
-                        <td>{{ i.0 }}</td>
-                        <td>{{ i.1 }}</td>
-                        <td>{{ i.2 }}</td>
+                        <td>{{ i.IP }}</td>
+                        <td>{{ i.username }}</td>
+                        <td>{{ i.password }}</td>
 
                         <td>
 

@@ -25,6 +25,7 @@ urlpatterns += patterns('gaga.views', #gaga.views为公共对象，patterns返�
          url(r'^index/json/$', 'json_data'),
          url(r'^upload/$', 'upload'),
          url(r'error/$', 'noreal'),
+         url(r'webSSH/$', 'term'),
 )
 if settings.DEBUG is False:
     urlpatterns += patterns('',
