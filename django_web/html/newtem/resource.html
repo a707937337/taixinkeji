@@ -9,10 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="stylesheet" type="text/css" href="{% static "lib/bootstrap/css/bootstrap.min.css" %}">
-     <link rel="stylesheet" type="text/css" href="{% static "css/tekview.css" %}">
+     <link rel="stylesheet" type="text/css" href="{% static "lib/bootstrap/css/bootstrap.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "stylesheets/theme.css" %}">
     <link rel="stylesheet" href="{% static "lib/font-awesome/css/font-awesome.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/tekview.css" %}">
     <script src="{% static "lib/jquery-1.7.2.min.js" %}" type="text/javascript"></script>
      <script src="{% static "lib/bootstrap/js/bootstrap.min.js" %}" type="text/javascript"></script>
     <script src="{% static "lib/tekview.js" %}" type="text/javascript" charset="gbk"></script>
@@ -49,6 +49,7 @@
             background:#ccc
         }
         .blank{ clear:both; overflow:hidden; display:block; overflow:hidden;height:37px;}
+
 
     </style>
 
@@ -159,8 +160,9 @@
                   <input class="anniu" type=button value=IP地址资源统计 name=play2 onclick="window.location.href='2'">
                     <input class="anniu" type=button value=主机账户密码 name=play3 onclick="window.location.href='3'">
 
-                {% endblock %}
+                    {% endblock %}
                 <div class="btn-group">
+                     <button class="icon-plus-sign" onclick="window.location.href='#'">添加</button>
                 </div>
             </div>
 
@@ -197,6 +199,7 @@
 
                             <a id="test" href=""><i class="icon-pencil"></i></a>
                             <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+
                         </td>
 
                     </tr>
