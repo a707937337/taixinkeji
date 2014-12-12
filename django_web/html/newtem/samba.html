@@ -55,15 +55,7 @@
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
 </head>
 
 <!--[if lt IE 7 ]>
@@ -134,7 +126,7 @@
 
         <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>统一终端<i class="icon-chevron-up"></i></a>
         <ul id="legal-menu" class="nav nav-list collapse">
-            <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">Windows远程桌面</a></li>
+
             <li ><a href="https://192.168.0.174" target="_blank">webSSH</a></li>
         </ul>
 
@@ -155,7 +147,7 @@
         <div class="row-fluid">
 
             <div class="btn-toolbar">
-                <button class="btn btn-primary">服务器状态</button>
+                <button class="btn  btn-info"><i class="icon-eye-open" ></i>服务器状态</button>
                 <div class="btn-group">
                 </div>
             </div>
@@ -206,7 +198,7 @@
                 </table>
             </div>
             <div id="container-test" style="min-width:500px;height:300px"></div>
-            <button class="btn btn-primary" onclick="webSSH()">启动webSSH</button>
+            <button class="btn btn-success" onclick="webSSH()"><i class="icon-play"></i>启动webSSH</button>
             <div id="gateone_container" style="position: relative; width: 70em; height: 50em;">
             <div id="gateone"></div>
             </div>

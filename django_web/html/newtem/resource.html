@@ -59,11 +59,7 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+
 </head>
 
 <!--[if lt IE 7 ]>
@@ -135,7 +131,7 @@
 
         <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>统一终端<i class="icon-chevron-up"></i></a>
         <ul id="legal-menu" class="nav nav-list collapse">
-            <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">Windows远程桌面</a></li>
+
            <li ><a href="https://192.168.0.174" target="_blank">webSSH</a></li>
         </ul>
 
@@ -161,14 +157,14 @@
                     <input class="anniu" type=button value=主机账户密码 name=play3 onclick="window.location.href='3'">
 
                     {% endblock %}
-                <div class="btn-group">
-                     <button class="icon-plus-sign" onclick="window.location.href='#'">添加</button>
+                <div class="btn-group" style="float:right">
+                     <a href="#myModal1" role="button" data-toggle="modal"><button class="anniu"><i class="icofont-bookmark-empty"></i>添加</button></a>
                 </div>
             </div>
 
             {% block table %}
              <div class="well" >
-                <table id='tab1' cellpadding='0' cellspacing='0'  class="table" style="table-layout:fixed;">
+                <table id='tab2' cellpadding='0' cellspacing='0'  class="table" style="table-layout:fixed;">
                     <thead>
                     <tr>
                         <th style="width:8%;">类型</th>
@@ -198,7 +194,7 @@
                         <td>
 
                             <a id="test" href=""><i class="icon-pencil"></i></a>
-                            <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+                            <a href="#myModal2" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
 
                         </td>
 
@@ -209,18 +205,59 @@
                 </table>
                 {% endblock %}
 
-            <div class="pagination">
+            <div class="pagination pagination-sm">
                 <ul>
-                    <li><a href="#">前一页</a></li>
+                    <li><a href="#">&laquo;</a></li>
                     <li><a href="#">1</a></li>
                     <li><a href="#">2</a></li>
                     <li><a href="#">3</a></li>
                     <li><a href="#">4</a></li>
-                    <li><a href="#">后一页</a></li>
+                    <li><a href="#">&raquo;</a></li>
                 </ul>
             </div>
 
-            <div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            <div class="modal small hide fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true" style="width: 1000px; height: 100px;">
+                <div class="modal-header">
+                    <h3 id="myModalLabel">添加资源</h3>
+                </div>
+                <div class="modal-body" >
+                  <form  method='post' enctype="multipart/form-data">
+                    <table id='tab1' cellpadding='0' cellspacing='0'  class="table" ">
+                       <thead>
+                    <tr>
+                        <th style="width:8%;">类型</th>
+                        <th style="width:8%;">版本</th>
+                        <th style="width:20%;">IP地址</th>
+                        <th style="width:10%;">用户名</th>
+                        <th style="width:9%;">密码</th>
+                        <th style="width:13%;">备注</th>
+                        <th style="width:10%;">测试负责人</th>
+                        <th style="width:10%;">开发负责人</th>
+                    </tr>
+                    </thead>
+                       <tbody>
+                       <tr>
+                        <td><input type="text" name="a"/></td>
+                        <td><input type="text" name="b"/></td>
+                        <td><input type="text" name="c"/></td>
+                        <td><input type="text" name="d"/></td>
+                        <td><input type="text" name="e"/></td>
+                        <td><input type="text" name="f"/></td>
+                        <td><input type="text" name="g"/></td>
+                        <td><input type="text" name="h"/></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                       <input type="submit" value="提交" class="btn btn-primary pull-right">
+                     </form>
+                </div>
+                <div class="modal-footer" >
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+
+                </div>
+            </div>
+             <div class="modal small hide fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -235,7 +272,6 @@
                 </div>
             </div>
 
-
             <footer>
                 <hr>
                 <!-- Purchase a site license to remove this link from the footer: http://www.portnine.com/bootstrap-themes -->
@@ -248,7 +284,7 @@
 </div>
 
 
-<script src="{% static "lib/bootstrap/js/bootstrap.js" %}"></div>
+
     <script type="text/javascript">
         $("[rel=tooltip]").tooltip();
         $(function() {
