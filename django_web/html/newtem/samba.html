@@ -130,7 +130,7 @@
             <li ><a href="https://192.168.0.174" target="_blank">webSSH</a></li>
         </ul>
 
-    <a href="#" class="nav-header"><i class="icon-question-sign"></i>帮助</a>
+    <a href="{% url 'gaga.views.webcontrol'%}" class="nav-header"><i class="icon-question-sign"></i>Web控制台</a>
 
 </div>
 
@@ -230,8 +230,6 @@
     </div>
 </div>
 
-
-<script src="{% static "lib/bootstrap/js/bootstrap.js" %}"></script>
     <script type="text/javascript">
         $("[rel=tooltip]").tooltip();
         $(function() {

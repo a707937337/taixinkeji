@@ -83,13 +83,17 @@ function startTime()
 var get_data=function(){
     var options;
        options={
+	   
         title: {
             text: '文件服务器监控数据',
             x: -20 //center
+			
         },
         subtitle: {
             text: '泰信科技',
             x: -20
+		
+			
         },
         xAxis: {
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -97,6 +101,7 @@ var get_data=function(){
         yAxis: {
             title: {
                 text: '百分比(%)',
+				
 
             },min: 0,
             plotLines: [{

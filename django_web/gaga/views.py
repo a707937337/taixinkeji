@@ -33,6 +33,10 @@ class UserForm(forms.Form):
 class XuqiuForm(forms.Form):
     user = forms.CharField(max_length=20, label='您是')
     xuqiu = forms.Textarea()
+class User_Password(forms.Form):
+    ip = forms.CharField(max_length=20, label='IP地址')
+    user = forms.CharField(max_length=20, label='用户名')
+    password = forms.CharField(max_length=20, label='密码')
 
 class UploadFileForm(forms.Form):
     file = forms.FileField()
@@ -162,3 +166,6 @@ def term(request):
 def noreal(request):
     html = '<html><head><title>泰信科技</title></head><body><center><h1>敬请期待!</h1></center></div></body></html>'
     return HttpResponse(html)
+#web控制台
+def webcontrol(request):
+    return render_to_response('newtem/webcontrol.html')

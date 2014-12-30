@@ -26,7 +26,7 @@ SECRET_KEY = '*a=*nsyy-f8+&jb$t1)%!u3dge8t-9nk0n0p4rx+bsa46u^y^i'
 DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.0.54']
 TEMPLATE_DEBUG = True
-#STATIC_ROOT = '/home/django_web/django_web/static'
+#STATIC_ROOT = '/home/django_web/static'
 
 
 

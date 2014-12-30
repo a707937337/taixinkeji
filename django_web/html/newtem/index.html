@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{% static "lib/font-awesome/css/font-awesome.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/tekview.css" %}">
     <script src="{% static "lib/jquery-1.7.2.min.js" %}" type="text/javascript"></script>
-    <script src="{% static "lib/bootstrap/js/bootstrap.min.js" %}" type="text/javascript"></script>
+    <script src="{% static "lib/bootstrap/js/bootstrap.js" %}" type="text/javascript"></script>
     <script src="{% static "lib/highcharts.js" %}" type="text/javascript"></script>
     <script src="{% static "lib/tekview.js" %}" type="text/javascript" charset="gbk"></script>
     <script type="text/javascript">
@@ -68,31 +68,31 @@
   <body class=""  onload="startTime()">
   <!--<![endif]-->
     
-    <div class="navbar">
-        <div class="navbar-inner">
-                <ul class="nav pull-right">
-                    
-                    <li><a href="#fat-menu" class="hidden-phone visible-tablet visible-desktop" role="button">功能未添加</a></li>
-                    <li id="fat-menu" class="dropdown">
-                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-user"></i> {{ username }}
-                            <i class="icon-caret-down"></i>
-                        </a>
+   <div class="navbar">
+    <div class="navbar-inner">
+        <ul class="nav pull-right">
 
-                        <ul class="dropdown-menu">
-                            <li><a tabindex="-1" href="#">我的账户</a></li>
-                            <li class="divider"></li>
-                            <li><a tabindex="-1" class="visible-phone" href="#">设置</a></li>
-                            <li class="divider visible-phone"></li>
-                            <li><a tabindex="-1" href="{% url "gaga.views.logout" %}">注销</a></li>
-                        </ul>
-                    </li>
-                    
+            <li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button">功能未添加</a></li>
+            <li id="fat-menu" class="dropdown">
+                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-user"></i> {{ username }}
+                    <i class="icon-caret-down"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="#">我的账户</a></li>
+                    <li class="divider"></li>
+                    <li><a tabindex="-1" class="visible-phone" href="#">setting</a></li>
+                    <li class="divider visible-phone"></li>
+                    <li><a tabindex="-1" href="{% url 'gaga.views.logout'%}">注销</a></li>
                 </ul>
-                <a class="brand" ><span class="first">APEX</span> <span class="second">泰信科技</span></a>
-        </div>
+            </li>
+
+        </ul>
+        <a class="brand"><span class="first">APEX</span> <span class="second">泰信科技</span></a>
     </div>
-    <span class="blank"></span>
+</div>
+<span class="blank"></span>
 
     
     <div class="sidebar-nav">
@@ -130,14 +130,14 @@
             <li ><a href="{% url 'gaga.views.term'%}" target="_blank">webSSH</a></li>
         </ul>
 
-        <a href="#" class="nav-header" ><i class="icon-question-sign"></i>帮助</a></br></br>
+        <a href="{% url 'gaga.views.webcontrol'%}" class="nav-header" ><i class="icon-question-sign"></i>Web控制台</a></br></br>
         <div style="width:250px;height:320px;">
         <form  name="mail" action="MAILTO:jiajia.yan@tekview.com" method="post" enctype="text/plain">
             <p><font color='gray'>您是：</font></p>
             <input type="text" name="我是" style="background-color:#8DB6CD" />
                 <p><font color='gray'>您的需求：</font></p>
                  <textarea name="我的需求" id="textarea" cols="45" rows="5" style="background-color:#8DB6CD" ></textarea>
-            <input type="submit" value="发送邮件" style="background-color:#e7d785"/>
+            <button type="submit" class="btn btn-info">发送邮件</button>
             </form>
             </div>
         </div>
@@ -325,10 +325,6 @@
             </div>
         </div>
     </div>
-    
-
-
-    <script src="{% static "lib/bootstrap/js/bootstrap.js" %}"></script>
     <script type="text/javascript">
         $("[rel=tooltip]").tooltip();
         $(function() {

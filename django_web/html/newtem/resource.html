@@ -135,7 +135,7 @@
            <li ><a href="https://192.168.0.174" target="_blank">webSSH</a></li>
         </ul>
 
-    <a href="#" class="nav-header"><i class="icon-question-sign"></i>帮助</a>
+    <a href="{% url 'gaga.views.webcontrol'%}" class="nav-header"><i class="icon-question-sign"></i>Web控制台</a>
 
 </div>
 
@@ -143,7 +143,9 @@
 <div class="content">
 
     <div class="header">
-        <h1 class="page-title">资源列表</h1>
+
+        <h1 class="page-title"> {% block page-title %}资源列表 {% endblock %}</h1>
+
     </div>
 
 
@@ -158,12 +160,15 @@
 
                     {% endblock %}
                 <div class="btn-group" style="float:right">
-                     <a href="#myModal1" role="button" data-toggle="modal"><button class="anniu"><i class="icofont-bookmark-empty"></i>添加</button></a>
+                    {% block myModal1 %}
+                     <a id="modal-476809" href="#modal-container-476809" role="button" class="btn" data-toggle="modal">上传Execl</a>
+                    {% endblock %}
                 </div>
             </div>
 
-            {% block table %}
+
              <div class="well" >
+                {% block table %}
                 <table id='tab2' cellpadding='0' cellspacing='0'  class="table" style="table-layout:fixed;">
                     <thead>
                     <tr>
@@ -175,7 +180,7 @@
                         <th style="width:13%;">备注</th>
                         <th style="width:10%;">测试负责人</th>
                         <th style="width:10%;">开发负责人</th>
-                        <th style="width:2%;"></th>
+                        <th style="width:2%;">编辑</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -194,7 +199,7 @@
                         <td>
 
                             <a id="test" href=""><i class="icon-pencil"></i></a>
-                            <a href="#myModal2" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+                            <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
 
                         </td>
 
@@ -206,6 +211,7 @@
                 {% endblock %}
 
             <div class="pagination pagination-sm">
+                {% block pagination %}
                 <ul>
                     <li><a href="#">&laquo;</a></li>
                     <li><a href="#">1</a></li>
@@ -214,50 +220,11 @@
                     <li><a href="#">4</a></li>
                     <li><a href="#">&raquo;</a></li>
                 </ul>
+                {% endblock %}
             </div>
 
-            <div class="modal small hide fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true" style="width: 1000px; height: 100px;">
-                <div class="modal-header">
-                    <h3 id="myModalLabel">添加资源</h3>
-                </div>
-                <div class="modal-body" >
-                  <form  method='post' enctype="multipart/form-data">
-                    <table id='tab1' cellpadding='0' cellspacing='0'  class="table" ">
-                       <thead>
-                    <tr>
-                        <th style="width:8%;">类型</th>
-                        <th style="width:8%;">版本</th>
-                        <th style="width:20%;">IP地址</th>
-                        <th style="width:10%;">用户名</th>
-                        <th style="width:9%;">密码</th>
-                        <th style="width:13%;">备注</th>
-                        <th style="width:10%;">测试负责人</th>
-                        <th style="width:10%;">开发负责人</th>
-                    </tr>
-                    </thead>
-                       <tbody>
-                       <tr>
-                        <td><input type="text" name="a"/></td>
-                        <td><input type="text" name="b"/></td>
-                        <td><input type="text" name="c"/></td>
-                        <td><input type="text" name="d"/></td>
-                        <td><input type="text" name="e"/></td>
-                        <td><input type="text" name="f"/></td>
-                        <td><input type="text" name="g"/></td>
-                        <td><input type="text" name="h"/></td>
-                    </tr>
-                    </tbody>
-                    </table>
-                       <input type="submit" value="提交" class="btn btn-primary pull-right">
-                     </form>
-                </div>
-                <div class="modal-footer" >
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
 
-                </div>
-            </div>
-             <div class="modal small hide fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             <div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -283,22 +250,26 @@
     </div>
 </div>
 
+<div id="modal-container-476809" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="myModalLabel">
+						标题栏
+					</h3>
+				</div>
+				<div class="modal-body">
+					<p>
+						显示信息
+					</p>
+				</div>
+				<div class="modal-footer">
+					 <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button> <button class="btn btn-primary">保存设置</button>
 
-
-    <script type="text/javascript">
+<script type="text/javascript">
         $("[rel=tooltip]").tooltip();
         $(function() {
             $('.demo-cancel-click').click(function(){return false;});
         });
-
-
-   $(function(){
-        //$('table tr:not(:first)').remove();
-        var len = $('table tr').length;
-        for(var i = 1;i<len;i++){
-          $('#test').attr('href',i);
-          };
-          });
     </script>
 
 </body>
