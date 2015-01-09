@@ -31,3 +31,8 @@ class name_password(models.Model):
     IP = models.CharField('IP地址',max_length = 20)
     username = models.CharField('账户名',max_length = 20)
     password = models.CharField('密码',max_length = 20)
+class linux_server(models.Model):
+    serverip = models.CharField('IP地址',max_length = 20)
+    mingcheng = models.CharField('名称',max_length = 20)
+    leixing = models.CharField('类型',max_length = 20)
+    version = models.CharField('版本',max_length = 20)

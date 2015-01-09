@@ -11,7 +11,7 @@ from api import execl
 from api.handle_uploaded_file import handle_uploaded_file
 
 from django.views.decorators.csrf import csrf_exempt
-from gaga.models import Fileserver, Xuqiu, name_password
+from gaga.models import Fileserver, linux_server, name_password
 from django.core import serializers
 #验证用户是否登录的装饰器
 def requires_login(view):
@@ -116,7 +116,10 @@ def samba(request):
     username = request.COOKIES.get('username', '')
 #    if username:
 #        return HttpResponseRedirect('/')
-    return main.ssh(request)
+    username = request.COOKIES.get('username', '')
+    obj = linux_server.objects.all().order_by('id')
+    return render_to_response('newtem/samba.html', {'username': username, 'obj': obj})
+
 
 #获取测试资源
 @login_required

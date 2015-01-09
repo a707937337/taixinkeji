@@ -83,17 +83,13 @@ function startTime()
 var get_data=function(){
     var options;
        options={
-	   
         title: {
             text: '文件服务器监控数据',
             x: -20 //center
-			
         },
         subtitle: {
             text: '泰信科技',
             x: -20
-		
-			
         },
         xAxis: {
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -101,7 +97,6 @@ var get_data=function(){
         yAxis: {
             title: {
                 text: '百分比(%)',
-				
 
             },min: 0,
             plotLines: [{
@@ -170,7 +165,7 @@ var get_data=function(){
  var webSSH = function() {
         // Initialize Gate One:
         GateOne.init({
-            url: 'https://192.168.0.174/',
+            url:'https://192.168.0.174/',showToolbar:false, showTitle:false, autoConnectURL:'ssh://192.168.0.35'
             //embedded: True,
             // Let's apply some custom styles while we're at it...
             //style: {'background-color': 'yellowgreen', 'box-shadow': '0 0 40px blueViolet'}

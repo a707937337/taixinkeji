@@ -147,7 +147,7 @@
         <div class="row-fluid">
 
             <div class="btn-toolbar">
-                <button class="btn  btn-info"><i class="icon-eye-open" ></i>服务器状态</button>
+                <button class="btn  btn-info"><i class="icon-eye-open" ></i>服务器列表</button>
                 <div class="btn-group">
                 </div>
             </div>
@@ -155,50 +155,34 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>资源类型</th>
-                        <th>资源状态</th>
-
-                        <th style="width: 26px;"></th>
+                        <th>序号</th>
+                        <th>IP地址</th>
+                        <th>主机名</th>
+                        <th>类型</th>
+                        <th>版本</th>
+                        <th style="width: 110px;">操作</th>
                     </tr>
                     </thead>
                     <tbody>
+                    {% for i in obj %}
                     <tr>
-                        <td>1</td>
-                        <td>磁盘使用率</td>
-                        <td>{{ obj.disk_useage }}</td>
+                        <td>{{ i.pk }}</td>
+                        <td>{{ i.serverip }}</td>
+                        <td>{{ i.mingcheng }}</td>
+                        <td>{{ i.leixing }}</td>
+                        <td>{{ i.version }}</td>
 
                         <td>
                             <a href="user.html"><i class="icon-pencil"></i></a>
-                            <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+                             <button class="btn-sm btn-success btn-block " onclick="webSSH()"><i class="icon-play"></i>启动webSSH</button>
+
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Samba服务状态</td>
-                        <td>{{ obj.smb_status}}</td>
-
-                        <td>
-
-                            <a href="user.html"><i class="icon-pencil"></i></a>
-                            <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Raid状态</td>
-                        <td>{{obj.raid_status}}</td>
-
-                        <td>
-                            <a href="user.html"><i class="icon-pencil"></i></a>
-                            <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-                        </td>
-                    </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>
             <div id="container-test" style="min-width:500px;height:300px"></div>
-            <button class="btn btn-success" onclick="webSSH()"><i class="icon-play"></i>启动webSSH</button>
             <div id="gateone_container" style="position: relative; width: 70em; height: 50em;">
             <div id="gateone"></div>
             </div>
