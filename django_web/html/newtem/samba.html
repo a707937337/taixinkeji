@@ -18,10 +18,6 @@
     <script src="{% static "lib/gateone.js"  %}" type="text/javascript"  ></script>
     <script src="{% static "lib/tekview.js" %}" type="text/javascript" charset="gbk"></script>
     <script type="text/javascript" >
-    $(function(){
-    samba();
-    });
-
     </script>
     <!-- Demo page code -->
 
@@ -51,6 +47,7 @@
             background:#ccc
         }
          .blank{ clear:both; overflow:hidden; display:block; overflow:hidden;height:37px;}
+
     </style>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -91,7 +88,7 @@
             </li>
 
         </ul>
-        <a class="brand"><span class="first">APEX</span> <span class="second">泰信科技</span></a>
+        <a class="brand"><span class="first">APEX</span> <span class="second">泰信科技内部资源管理系统</span></a>
     </div>
 </div>
 <span class="blank"></span>
@@ -106,7 +103,7 @@
         <li><a href="/index/">首页</a></li>
         <li><a href="../testresource/">资源列表</a></li>
         <li><a href="#">资源申请</a></li>
-        <li><a href="../repository/">知识库wiki</a></li>
+        <li><a href="#">知识库wiki</a></li>
         <li><a href=".">服务器管理</a></li>
     </ul>
  <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>爬虫<i class="icon-chevron-up"></i></a>
@@ -118,7 +115,7 @@
 
         <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i> Devops<i class="icon-chevron-up"></i></a>
         <ul id="error-menu" class="nav nav-list collapse">
-            <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">Saltstack</a></li>
+            <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">Ansible</a></li>
             <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">Zabbix</a></li>
             <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">Cobbler</a></li>
 
@@ -173,8 +170,8 @@
                         <td>{{ i.version }}</td>
 
                         <td>
-                            <a href="user.html"><i class="icon-pencil"></i></a>
-                             <button class="btn-sm btn-success btn-block " onclick="webSSH()"><i class="icon-play"></i>启动webSSH</button>
+
+                             <a onclick="webSSH()"><i class="icon-play"></i>进入webSSH</a>
 
                         </td>
                     </tr>
@@ -182,7 +179,6 @@
                     </tbody>
                 </table>
             </div>
-            <div id="container-test" style="min-width:500px;height:300px"></div>
             <div id="gateone_container" style="position: relative; width: 70em; height: 50em;">
             <div id="gateone"></div>
             </div>

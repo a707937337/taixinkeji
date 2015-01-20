@@ -62,22 +62,11 @@ var samba=function () {
 function startTime()
     {
     var today=new Date()
-    var h=today.getHours()
-    var m=today.getMinutes()
-    var s=today.getSeconds()
-    // add a zero in front of numbers<10
-    m=checkTime(m)
-    s=checkTime(s)
-    document.getElementById('txt').innerHTML="北京时间"+"\t"+h+":"+m+":"+s
-    t=setTimeout('startTime()',500)
-    }
+    document.getElementById('txt').innerHTML=today.toLocaleString( )
+    setTimeout('startTime()',500)
+    };
 
-    function checkTime(i)
-    {
-    if (i<10)
-    {i="0" + i}
-     return i
-};
+ 
 
 //首页显示文件服务器监控数据图表，实现ajax异步请求
 var get_data=function(){
@@ -165,7 +154,7 @@ var get_data=function(){
  var webSSH = function() {
         // Initialize Gate One:
         GateOne.init({
-            url:'https://192.168.0.174/',showToolbar:false, showTitle:false, autoConnectURL:'ssh://192.168.0.35'
+            url:'https://192.168.0.174/', autoConnectURL:'ssh://root@192.168.0.35'
             //embedded: True,
             // Let's apply some custom styles while we're at it...
             //style: {'background-color': 'yellowgreen', 'box-shadow': '0 0 40px blueViolet'}
