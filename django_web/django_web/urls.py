@@ -23,6 +23,7 @@ urlpatterns += patterns('gaga.views', #gaga.views为公共对象，patterns返�
 
          url(r'^index/samba/$', 'samba'),
          url(r'^index/json/$', 'json_data'),
+         url(r'^index/wiki/$', 'wiki'),
          url(r'^upload/$', 'upload'),
          url(r'error/$', 'noreal'),
          url(r'webSSH/$', 'term'),

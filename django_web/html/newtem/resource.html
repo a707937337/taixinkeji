@@ -110,11 +110,11 @@
         <li ><a href="{% url "gaga.views.index" %}">首页</a></li>
         <li ><a href="{% url "gaga.views.testresource" %}">资源列表</a></li>
         <li ><a href="#">资源申请</a></li>
-        <li ><a href="#">知识库wiki</a></li>
+        <li ><a href="{% url "gaga.views.wiki" %}">知识库</a></li>
         <li ><a href="{% url "gaga.views.samba" %}">服务器管理</a></li>
     </ul>
 
-     <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>爬虫<i class="icon-chevron-up"></i></a>
+     <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>业务管理<i class="icon-chevron-up"></i></a>
         <ul id="accounts-menu" class="nav nav-list collapse">
             <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">1</a></li>
             <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">2</a></li>
@@ -148,17 +148,19 @@
 
     </div>
 
-
+{% block index %}
     <div class="container-fluid">
-        <div class="row-fluid">
-
+        <div class="row-fluid" >
+            <div style="padding:1px;background-color:#F0FFFF">
+             <ul class="nav  nav-pills" id="nav">
+                 {% block active %}
+                <li role="presentation" class="active"><a href="/index/testresource/">app资源列表</a></li>
+                    <li role="presentation"><a href="/index/testresource/2">IP地址资源统计</a></li>
+                        <li role="presentation"><a href="/index/testresource/3">主机账户密码</a></li>
+                 {% endblock %}
+                  </ul>
+                </div>
             <div class="btn-toolbar">
-            {% block href %}
-                <input class="anniu" type=button value=app资源列表 name=play1 onclick="window.location.href='#'">
-                  <input class="anniu" type=button value=IP地址资源统计 name=play2 onclick="window.location.href='2'">
-                    <input class="anniu" type=button value=主机账户密码 name=play3 onclick="window.location.href='3'">
-
-                    {% endblock %}
                 <div class="btn-group" style="float:right">
                     {% block myModal1 %}
                      <a id="modal-476809" href="#modal-container-476809" role="button" class="btn" data-toggle="modal">上传Execl</a>
@@ -180,7 +182,7 @@
                         <th style="width:13%;">备注</th>
                         <th style="width:10%;">测试负责人</th>
                         <th style="width:10%;">开发负责人</th>
-                        <th style="width:2%;">编辑</th>
+                        <th style="width:2%;">管理</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -264,14 +266,22 @@
 				</div>
 				<div class="modal-footer">
 					 <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button> <button class="btn btn-primary">保存设置</button>
-
+{% endblock %}
+{% block script %}
 <script type="text/javascript">
         $("[rel=tooltip]").tooltip();
         $(function() {
             $('.demo-cancel-click').click(function(){return false;});
         });
-    </script>
 
+
+ //    $("#nav li").click(function(){
+ //    var inx = $(this).index();
+ //    $("#nav li").removeClass("active");
+ //     $("#nav li").eq(inx).addClass("active");
+//     });
+    </script>
+{% endblock %}
 </body>
 </html>
 

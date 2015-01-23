@@ -36,3 +36,12 @@ class linux_server(models.Model):
     mingcheng = models.CharField('名称',max_length = 20)
     leixing = models.CharField('类型',max_length = 20)
     version = models.CharField('版本',max_length = 20)
+class resource(models.Model):
+    leixin = models.CharField('类型',max_length = 100)
+    banben = models.CharField('版本',max_length= 100)
+    ip = models.CharField('ip地址',max_length= 255)
+    username = models.CharField('用户名',max_length=100)
+    password = models.CharField('密码',max_length=100)
+    beizhu = models.CharField('备注',max_length=255)
+    tester = models.CharField('测试人',max_length=100)
+    rd = models.CharField('开发人',max_length=100)

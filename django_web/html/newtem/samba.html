@@ -103,10 +103,10 @@
         <li><a href="/index/">首页</a></li>
         <li><a href="../testresource/">资源列表</a></li>
         <li><a href="#">资源申请</a></li>
-        <li><a href="#">知识库wiki</a></li>
+        <li><a href="{% url "gaga.views.wiki" %}">知识库</a></li>
         <li><a href=".">服务器管理</a></li>
     </ul>
- <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>爬虫<i class="icon-chevron-up"></i></a>
+ <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>业务管理<i class="icon-chevron-up"></i></a>
         <ul id="accounts-menu" class="nav nav-list collapse">
             <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">1</a></li>
             <li ><a href="{% url 'gaga.views.noreal'%}" target="_blank">2</a></li>
@@ -171,7 +171,7 @@
 
                         <td>
 
-                             <a onclick="webSSH()"><i class="icon-play"></i>进入webSSH</a>
+                             <a href="javascript:webSSH('{{i.serverip}}')"><i class="icon-play"></i>进入webSSH</a>
 
                         </td>
                     </tr>

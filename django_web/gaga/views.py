@@ -154,7 +154,7 @@ def json_data(request):
     return HttpResponse(data,content_type='application/json')
 @csrf_exempt
 @login_required
-def upload(request):
+def upload(     request):
    return render_to_response('newtem/upload.html')
 
 #webSSH
@@ -162,7 +162,11 @@ def upload(request):
 def term(request):
     return render_to_response('newtem/term.html')
 
-
+#知识库
+@login_required
+def wiki(request):
+    username = request.COOKIES.get('username', '')
+    return render_to_response('newtem/wiki.html', {'username':username})
 
 
 #未实现功能返回页
@@ -171,4 +175,5 @@ def noreal(request):
     return HttpResponse(html)
 #web控制台
 def webcontrol(request):
-    return render_to_response('newtem/webcontrol.html')
+    username = request.COOKIES.get('username', '')
+    return render_to_response('newtem/webcontrol.html', {'username':username})

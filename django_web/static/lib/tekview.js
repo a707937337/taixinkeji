@@ -151,10 +151,9 @@ var get_data=function(){
             cache: false
         });
 };
- var webSSH = function() {
+function webSSH(ip="") {
         // Initialize Gate One:
-        GateOne.init({
-            url:'https://192.168.0.174/', autoConnectURL:'ssh://root@192.168.0.35'
+        GateOne.init({url:'https://192.168.0.174/', autoConnectURL:'ssh://root@'+ip
             //embedded: True,
             // Let's apply some custom styles while we're at it...
             //style: {'background-color': 'yellowgreen', 'box-shadow': '0 0 40px blueViolet'}
