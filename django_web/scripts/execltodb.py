@@ -35,15 +35,20 @@ class execltodb(object):
                        user=ser_config.DBUSER,
                        passwd=ser_config.DBPASSWORD,
                        db=ser_config.DBNAME,charset="utf8")
-    #创建游标
-        cursor = conn.cursor()
+    #创建游标、插入数据
+        cur = conn.cursor()
         data = self.get_execl()
         for i in data:
-
-            sql = "insert into gaga_resource(leixin, banben, ip, username, password, beizhu, tester, rd) values('%s','%s','%s','%s','%s','%s','%s','%s')"%tuple(i)
-            cursor.execute(sql)
-        cursor.close()
+#            sql = "insert into gaga_resource(leixin, banben, ip, username, password, beizhu, tester, rd) values(%s,%s,%s,%s,%s,%s,%s,%s)"
+            sql = "insert into gaga_serverip(ip, useornot, beizhu) values(%s,%s,%s)"
+            para = tuple(i)
+            cur.execute(sql, para)
+        conn.commit()
+        cur.close()
         conn.close()
 if __name__ == '__main__':
-    execl = execltodb(r'c:\APP.xls', 'Sheet1')
-    execl.todb()
+    try:
+        execl = execltodb(r'c:\ip2.xls', 'Sheet1')
+        execl.todb()
+    except MySQLdb.Error,e:
+        print "Mysql Error %d: %s" % (e.args[0], e.args[1])

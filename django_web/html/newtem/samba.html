@@ -47,7 +47,18 @@
             background:#ccc
         }
          .blank{ clear:both; overflow:hidden; display:block; overflow:hidden;height:37px;}
-
+       #myModal .modal-body {
+            max-height: 900px;border:1px #EE9A00 solid;
+        }
+        #myModal {
+        /* SET THE WIDTH OF THE MODAL 设置Modal的宽度*/
+        width: 900px;
+        /* CHANGE MARGINS TO ACCOMODATE THE NEW WIDTH (original = margin: -250px 0 0 -280px;) */
+        margin: -250px 0 0 -450px;
+        }
+        #myModal {
+        margin: -300px 0 0 -280px; /* PLAY THE WITH THE VALUES TO SEE GET THE DESIRED EFFECT */
+        }
     </style>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -171,33 +182,33 @@
 
                         <td>
 
-                             <a href="javascript:webSSH('{{i.serverip}}')"><i class="icon-play"></i>进入webSSH</a>
+                             <a href="#myModal" data-toggle="modal"><i class="icon-play"></i>进入webSSH</a>
+
 
                         </td>
                     </tr>
                     {% endfor %}
                     </tbody>
                 </table>
-            </div>
-            <div id="gateone_container" style="position: relative; width: 70em; height: 50em;">
-            <div id="gateone"></div>
-            </div>
 
-            <div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h3 id="myModalLabel">删除监控项</h3>
-                </div>
-                <div class="modal-body">
-                    <p class="error-text"><i class="icon-warning-sign modal-icon"></i>确定要删除这个监控项?</p>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-                    <button class="btn btn-danger" data-dismiss="modal">删除</button>
-                </div>
-            </div>
 
+           <!-- Modal -->
+            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header" style="background-color:#F0FFFF">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel"><b>Web SSH</b></h3>
+            </div>
+            <div class="modal-body">
+
+                     <div id="gateone_container" style="position: relative; width: 60em; height: 30em;">
+                        <div id="gateone"></div>
+                     </div>
+                 </div>
+            <div class="modal-footer" style="background-color:#F0FFFF">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+                <button class="btn btn-primary" onclick="webSSH('{{ i.serverip }}')">连接</button>
+            </div>
+            </div>
 
             <footer>
                 <hr>

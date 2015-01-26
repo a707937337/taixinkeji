@@ -11,7 +11,7 @@ from api import execl
 from api.handle_uploaded_file import handle_uploaded_file
 
 from django.views.decorators.csrf import csrf_exempt
-from gaga.models import Fileserver, linux_server, name_password
+from gaga.models import Fileserver, linux_server, name_password, resource, serverip
 from django.core import serializers
 #验证用户是否登录的装饰器
 def requires_login(view):
@@ -49,11 +49,11 @@ def regist(req):
             username = uf.cleaned_data['username']
             password = uf.cleaned_data['password']
             #添加到数据库
-            User.objects.create(username= username,password=password)
+            User.objects.create(username=username,password=password)
             return HttpResponse('regist success!!')
     else:
         uf = UserForm()
-    return render_to_response('regist.html', {'uf':uf}, context_instance=RequestContext(req))
+    return render_to_response('newtem/reset-password.html', {'uf': uf}, context_instance=RequestContext(req))
 
 #提交需求
 def postxuqiu(request):
@@ -124,18 +124,20 @@ def samba(request):
 #获取测试资源
 @login_required
 def testresource(request):
-    fname = "c:\APP.xls"
-    sheet = "Sheet1"
-    a = execl.get_execl(fname, sheet)
+#    fname = "c:\APP.xls"
+#    sheet = "Sheet1"
+#    a = execl.get_execl(fname, sheet)
+    res = resource.objects.all()
     username = request.COOKIES.get('username', '')
-    return render_to_response('newtem/resource.html', {'list': a, 'username': username})
+    return render_to_response('newtem/resource.html', {'list': res, 'username': username})
 #修改表格数据
 @login_required
 def changetab(request,tab):
     if int(tab) == 2:
-       	fname = "c:\ip2.xls"
-        sheet = "Sheet1"
-        a = execl.get_execl(fname,sheet)
+#        fname = "c:\ip2.xls"
+#        sheet = "Sheet1"
+#        a = execl.get_execl(fname,sheet)
+        a = serverip.objects.all()
         return render_to_response('newtem/tab2.html', {'list': a})
     else:
         a = name_password.objects.all()
@@ -151,7 +153,7 @@ def json_data(request):
     #ob = [{'disk_useage':1,'smb_status': 2,'raid_status':3,'test':4}, {'disk_useage':1,'smb_status': 2,'raid_status':3,'test':4}]
 #    jsondata = json.dumps(data)
 #    jsondata = ob.toJSON()
-    return HttpResponse(data,content_type='application/json')
+    return HttpResponse(data, content_type='application/json')
 @csrf_exempt
 @login_required
 def upload(     request):
@@ -166,7 +168,7 @@ def term(request):
 @login_required
 def wiki(request):
     username = request.COOKIES.get('username', '')
-    return render_to_response('newtem/wiki.html', {'username':username})
+    return render_to_response('newtem/wiki.html', {'username': username})
 
 
 #未实现功能返回页

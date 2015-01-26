@@ -45,3 +45,7 @@ class resource(models.Model):
     beizhu = models.CharField('备注',max_length=255)
     tester = models.CharField('测试人',max_length=100)
     rd = models.CharField('开发人',max_length=100)
+class serverip(models.Model):
+    ip = models.CharField('IP地址',max_length= 20)
+    useornot = models.CharField('是否使用', max_length= 10)
+    beizhu = models.CharField('备注', max_length= 40)

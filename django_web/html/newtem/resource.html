@@ -189,14 +189,14 @@
                     {% for i in list%}
                     <tr>
 
-                        <td>{{ i.0 }}</td>
-                        <td>{{ i.1 }}</td>
-                        <td>{{ i.2 }}</td>
-                        <td>{{ i.3 }}</td>
-                        <td>{{ i.4 }}</td>
-                        <td>{{ i.5 }}</td>
-                        <td>{{ i.6 }}</td>
-                        <td>{{ i.7 }}</td>
+                        <td>{{ i.leixin }}</td>
+                        <td>{{ i.banben }}</td>
+                        <td>{{ i.ip }}</td>
+                        <td>{{ i.username }}</td>
+                        <td>{{ i.password }}</td>
+                        <td>{{ i.beizhu }}</td>
+                        <td>{{ i.tester }}</td>
+                        <td>{{ i.rd }}</td>
 
                         <td>
 
@@ -267,7 +267,7 @@
 				<div class="modal-footer">
 					 <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button> <button class="btn btn-primary">保存设置</button>
 {% endblock %}
-{% block script %}
+
 <script type="text/javascript">
         $("[rel=tooltip]").tooltip();
         $(function() {
@@ -275,13 +275,13 @@
         });
 
 
- //    $("#nav li").click(function(){
- //    var inx = $(this).index();
- //    $("#nav li").removeClass("active");
- //     $("#nav li").eq(inx).addClass("active");
-//     });
+    $("#nav li").click(function(){
+    var inx = $(this).index();
+     $("#nav li").removeClass("active");
+    $("#nav li").eq(inx).addClass("active");
+     });
     </script>
-{% endblock %}
+
 </body>
 </html>
 
