@@ -197,33 +197,33 @@
                         <td>{{ i.beizhu }}</td>
                         <td>{{ i.tester }}</td>
                         <td>{{ i.rd }}</td>
-
                         <td>
-
                             <a id="test" href=""><i class="icon-pencil"></i></a>
                             <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-
                         </td>
-
                     </tr>
                     {% endfor %}
-
                     </tbody>
                 </table>
                 {% endblock %}
-
-            <div class="pagination pagination-sm">
-                {% block pagination %}
-                <ul>
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul>
-                {% endblock %}
-            </div>
+                 <hr>
+                <div class="pagination" align="center">
+                    <span>
+                        {% if posts.has_previous %}
+                        <a href="?page={{ posts.previous_page_number }}">&laquo;</a>
+                        {% else %}
+                    <span></span>
+                        {% endif %}
+                    <span >
+                        第 {{ posts.number }} 页/共 {{ posts.paginator.num_pages }} 页
+                     </span>
+                        {% if posts.has_next %}
+                        <a href="?page={{ posts.next_page_number }}">&raquo;</a>
+                        {% else %}
+                     <span ></span>
+                        {% endif %}
+                     </span>
+                 </div>
 
 
              <div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -239,19 +239,13 @@
                     <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
                     <button class="btn btn-danger" data-dismiss="modal">删除</button>
                 </div>
-            </div>
-
-            <footer>
-                <hr>
-                <!-- Purchase a site license to remove this link from the footer: http://www.portnine.com/bootstrap-themes -->
-
-                <p>&copy; 2014</p>
-            </footer>
-
+            </div
         </div>
     </div>
 </div>
-
+ <footer>
+    <p>&copy; 2014<a href="http://www.tekview.com/" target="_blank">APEX</a></p>
+    </footer>
 <div id="modal-container-476809" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-header">
 					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

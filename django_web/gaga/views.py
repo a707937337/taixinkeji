@@ -13,6 +13,7 @@ from api.handle_uploaded_file import handle_uploaded_file
 from django.views.decorators.csrf import csrf_exempt
 from gaga.models import Fileserver, linux_server, name_password, resource, serverip
 from django.core import serializers
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 #验证用户是否登录的装饰器
 def requires_login(view):
     def new_view(request, *args, **kwargs):
@@ -128,8 +129,21 @@ def testresource(request):
 #    sheet = "Sheet1"
 #    a = execl.get_execl(fname, sheet)
     res = resource.objects.all()
+     #####ADD
+    page_size = 8
+    paginator = Paginator(res, page_size)
+    try:
+        page = int(request.GET.get('page','1'))
+    except ValueError:
+        page = 1
+        print page
+    try:
+        posts = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        posts = paginator.page(paginator.num_pages)
     username = request.COOKIES.get('username', '')
-    return render_to_response('newtem/resource.html', {'list': res, 'username': username})
+    return render_to_response('newtem/resource.html', {'list': posts, 'username': username, 'posts': posts})
+
 #修改表格数据
 @login_required
 def changetab(request,tab):
@@ -137,11 +151,33 @@ def changetab(request,tab):
 #        fname = "c:\ip2.xls"
 #        sheet = "Sheet1"
 #        a = execl.get_execl(fname,sheet)
-        a = serverip.objects.all()
-        return render_to_response('newtem/tab2.html', {'list': a})
+        server = serverip.objects.all()
+        page_size = 24
+        paginator = Paginator(server, page_size)
+        try:
+            page = int(request.GET.get('page','1'))
+        except ValueError:
+            page = 1
+            print page
+        try:
+            posts = paginator.page(page)
+        except (EmptyPage, InvalidPage):
+            posts = paginator.page(paginator.num_pages)
+        return render_to_response('newtem/tab2.html', {'list': posts, 'posts': posts})
     else:
         a = name_password.objects.all()
-        return render_to_response('newtem/tab3.html', {'list': a})
+        page_size = 8
+        paginator = Paginator(a, page_size)
+        try:
+            page = int(request.GET.get('page', '1'))
+        except ValueError:
+            page = 1
+            print page
+        try:
+            posts = paginator.page(page)
+        except (EmptyPage, InvalidPage):
+            posts = paginator.page(paginator.num_pages)
+        return render_to_response('newtem/tab3.html', {'list': posts, 'posts': posts})
 
 #ajax调用
 @csrf_exempt
