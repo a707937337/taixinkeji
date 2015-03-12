@@ -62,7 +62,7 @@ WSGI_APPLICATION = 'django_web.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         #'NAME': 'py_test',                      # Or path to database file if using sqlite3.
@@ -75,13 +75,13 @@ DATABASES = {
         'HOST': '192.168.0.35',
         'PORT': '3306',
     }
-}
-'''DATABASES = {
+}'''
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}'''
+}
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
